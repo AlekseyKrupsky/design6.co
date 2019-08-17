@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <!--<link rel="stylesheet" type="text/css" href="images/style.css">-->
+    <!-- markItUp! skin -->
+    <link rel="stylesheet" type="text/css" href="markitup/skins/markitup/style.css">
+    <!--  markItUp! toolbar skin -->
+    <link rel="stylesheet" type="text/css" href="markitup/sets/default/style.css">
+    <!-- markItUp! -->
+    <script src="jquery.js"></script>
+    <script type="text/javascript" src="markitup/jquery.markitup.js"></script>
+    <!-- markItUp! toolbar settings -->
+    <script type="text/javascript" src="markitup/sets/default/set.js"></script>
+</head>
+<body id="body">
+<header>
+    <div class="wrapper">
+    <div class="logo"><img src="images/knowledge%20explorer.png" alt=""></div>
+    <a class="link" href="#">Suggestions and feedback</a>
+    </div>
+</header>
+<main>
+<article class="about">
+    <h2>About services and features</h2>
+    <div>
+        <div class="text">
+        <p>Knowledge Explorer - Choose your way to learn Kazan.</p>
+
+        <p> Knowledge Explorer - prototype of a web application for one narrow area - tourist company of Kazan, whose goal is to acquaint visitors of the city with the history, culture and atmosphere of the thousand-year-old capital of Tatarstan in an interactive presentation format. The visitor can choose the route of acquaintance and receipt of information in accordance with his contextual choice on each slide.</p>
+        </div>
+        <div class="features">
+            <div class="feature">Two modes of operation: route editor and view presentation</div>
+            <div class="feature">4 options for choosing a next slide</div>
+            <div class="feature">Text editor for the design of slides</div>
+            <div class="feature">Everyone can create their own interactive presentation without learning programming languages.</div>
+        </div>
+    </div>
+</article>
+
+    <article>
+        <h2>About editor and view mode</h2>
+        <p>
+            More than a presentation editor <br>
+            Choose what you are interested in for further reference
+        </p>
+    </article>
+
+<article>
+    <h2>How it works</h2>
+    
+    <div class="blocks">
+        <div class="block">
+            <p>Create slides and fill them with content</p>
+            <img src="images/BY_CONTENT_04.png" title="Represent an action" alt="Create slides and fill them with content"></div>
+        <div class="block">
+            <p>Tie the slides together</p>
+            <img src="images/BY_CONTENT_02.png" title="Represent an action" alt="Tie the slides together"></div>
+        <div class="block">
+            <p>View the result of your work online</p>
+            <img src="images/BY_CONTENT_03.png" title="Represent an action" alt="View the result of your work online"></div>
+        <div class="block">
+            <p>Choose a topic that interests you and follow the instructions on the interactive presentation</p>
+            <img src="images/BY_CONTENT_01.png" title="Represent an action" alt="Choose a topic that interests you and follow the instructions on the interactive presentation"></div>
+    </div>
+    
+</article>
+
+<section id="call">
+    <p>Do you know something interesting about Kazan? <br>
+        Create your interactive presentation!<br>
+        Tired of boring excursions? <br>
+        Choose yourself what interests you. <br>
+    </p>
+    <button id="try">TRY NOW</button>
+</section>
+</main>
+<footer>
+    <div class="wrapper">
+        <div class="copyrights">
+            Copyright 2019 All rights reserved
+        </div>
+        <div class="soc">
+            <a href="#" title="Youtube"><img src="images/y.png" alt="Youtube"></a>
+            <a href="#" title="Twitter"><img src="images/t.png" alt="Twitter"></a>
+            <a href="#" title="Facebook"><img src="images/f.png" alt="Facebook"></a>
+        </div>
+    </div>
+</footer>
+
+<div class="editor">
+    <div class="top">
+        <span>Edit node</span>
+        <span class="close">X</span>
+    </div>
+    <div class="content">
+        <textarea id="markItUp" cols="80" rows="20" placeholder="Description"></textarea>
+
+        <script type="text/javascript">
+            $(function() {
+                // Add markItUp! to your textarea in one line
+                // $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
+                $('#markItUp').markItUp(mySettings);
+
+
+
+                // You can add content from anywhere in your page
+                // $.markItUp( { Settings } );
+                $('.add').click(function() {
+                    $('#markItUp').markItUp('insert',
+                        { 	openWith:'<opening tag>',
+                            closeWith:'<\/closing tag>',
+                            placeHolder:"New content"
+                        }
+                    );
+                    return false;
+                });
+
+                // And you can add/remove markItUp! whenever you want
+                // $(textarea).markItUpRemove();
+                $('.toggle').click(function() {
+                    if ($("#markItUp.markItUpEditor").length === 1) {
+                        $("#markItUp").markItUp('remove');
+                        $("span", this).text("get markItUp! back");
+                    } else {
+                        $('#markItUp').markItUp(mySettings);
+                        $("span", this).text("remove markItUp!");
+                    }
+                    return false;
+                });
+            });
+        </script>
+
+
+        <div class="photo">
+            <input type="file">
+            <img src="" width="100" alt="">
+        </div>
+
+        <div class="relations">
+            <input type="text" data-relid="0" class="rel rel0" placeholder="Relation 1">
+            <input type="text" data-relid="1" class="rel rel1" placeholder="Relation 2">
+            <input type="text" data-relid="2" class="rel rel2" placeholder="Relation 3">
+            <input type="text" data-relid="3" class="rel rel3" placeholder="Relation 4">
+        </div>
+
+    </div>
+</div>
+
+<div class="slider">
+    <div data-rellink="0" class="relation r0"></div>
+    <div data-rellink="1" class="relation r1"></div>
+    <div data-rellink="2" class="relation r2"></div>
+    <div data-rellink="3" class="relation r3"></div>
+    <div class="slide">
+        <div class="img">
+            <img src="" alt="">
+        </div>
+        <div class="description"></div>
+    </div>
+    <div class="additional">
+        <svg class="map" id="map"></svg>
+        <a class="linkback" href="#">Router mode</a>
+    </div>
+</div>
+<svg width="1440" height="820" id="svg"></svg>
+
+<script src="script.js"></script>
+</body>
+</html>
